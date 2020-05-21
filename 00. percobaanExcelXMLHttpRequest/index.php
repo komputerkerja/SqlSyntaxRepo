@@ -1,4 +1,5 @@
 <?php
+require_once 'MyClass/DatabaseFunc.php';
 //$query = 'CREATE DATABASE usermysqltest';
 //$query = 'create table user(id int(11) unsigned auto_increment primary key not null,username varchar(25) not null,email varchar(100) not null)';
 
@@ -44,21 +45,18 @@
 // }
 
 
-$conn = mysqli_connect('localhost', 'root', '', 'db_mahasiswa');
-$query = "SELECT nama,tanggal,penjualan, IF(tanggal>='2020-01-01' AND tanggal<='2020-01-20' AND nama='ronal',penjualan,0) FROM penjualan";
-$result = mysqli_query($conn, $query);
-$rows = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $rows[] = $row;
-}
-
-var_dump(count($rows));
-
-if (mysqli_errno($conn) == 0) {
-  echo 'Sucses<br>';
-} else {
-  echo "Failed!<br>";
-}
+// MEMBUAT TABLE BARU
+// if (createNewTable('mynewtable') == 0) {
+//   echo 'Succsess!';
+// } else {
+//   echo 'Failed!';
+// }
+// if (deleteTable('mynewtable') == 0) {
+//   echo 'Succsess!';
+// } else {
+//   echo 'Failed!';
+// }
+$showDatabase = showdataBase('db_mahasiswa');
 
 
 
@@ -72,6 +70,7 @@ if (mysqli_errno($conn) == 0) {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/mystyle.css">
   <title>Hello, world!</title>
 </head>
 
@@ -79,8 +78,35 @@ if (mysqli_errno($conn) == 0) {
 
   <h1 id="header">SQL Syntax Using PHP</h1>
 
+  <div class="formdiv">
+    <button id="addNew">+</button>
+    <form action="" method="POST">
+      <div class="textcenterall">
+        <h3>Create new table</h3>
+        <input type="text" class="namaTable" id="namaTable">
+        <button id="create">Create</button>
+        <hr>
+      </div>
+      <ul></ul>
+    </form>
+  </div>
 
 
+  <div class="container">
+    <div class="showTable">
+      <h3>Show Database</h3>
+      <hr>
+      <ul>
+        <?php foreach ($showDatabase as $db) : ?>
+        <li><?= $db['Database']; ?></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+    <div class="tampilTable"></div>
+  </div>
+
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>
