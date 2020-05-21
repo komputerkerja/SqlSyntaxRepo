@@ -12,8 +12,7 @@ $namaTable = "Tables_in_" . $_GET['id'];
 
 ?>
 
-<h3>Show Tables From <?= $_GET['id']; ?></h3>
-<hr>
+<h3><?= $_GET['id']; ?></h3>
 <ul>
   <?php foreach ($rows as $row) : ?>
   <li><?= $row[$namaTable]; ?></li>

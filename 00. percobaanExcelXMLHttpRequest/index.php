@@ -78,16 +78,27 @@ $showDatabase = showdataBase('db_mahasiswa');
 
   <div class="container">
 
-    <h1 id="header">SQL Syntax Using PHP</h1>
+    <div class="header">
+      <h1 id="header">Databases Settings</h1>
+      <button id="createDB">New database</button>
+      <button id="addNew">+</button>
+    </div>
 
     <div class="formdiv">
-      <button id="addNew">+</button>
+
+      <form action="" method="POST">
+        <div class="newdatabase">
+          <h3>Create New Database`</h3>
+          <input type="text" class="namaTable" id="namaTable"><br>
+          <button type="submit" id="create">Create</button>
+        </div>
+      </form>
+
       <form action="" method="POST">
         <div class="textcenterall">
           <h3>Create new table</h3>
-          <input type="text" class="namaTable" id="namaTable">
-          <button id="create">Create</button>
-          <hr>
+          <input type="text" class="namaTable" id="namaTable"><br>
+          <button type="submit" id="create">Create</button>
         </div>
         <ul></ul>
       </form>
@@ -95,7 +106,6 @@ $showDatabase = showdataBase('db_mahasiswa');
 
     <div class="showTable">
       <h3>Show Database</h3>
-      <hr>
       <ul>
         <?php foreach ($showDatabase as $db) : ?>
         <li><?= $db['Database']; ?></li>

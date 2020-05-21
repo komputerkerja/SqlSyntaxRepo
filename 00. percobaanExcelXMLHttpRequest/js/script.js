@@ -4,7 +4,7 @@ let str = "";
 let x = 1;
 addNewX.addEventListener('click', function () {
     str = str + `<div class="frmInputLabel">
-                    <label for="nama`+ x + `">colom : </label>
+                    <label for="nama`+ x + `">colom : </label><br>
                     <input type="text" id="nama`+ x + `" name="nama` + x + `">
                     <input type="number" id="nama` + x + `long" name="nama` + x + `long">
                 </div>`;

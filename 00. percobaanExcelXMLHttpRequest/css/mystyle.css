@@ -1,0 +1,38 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: snow;
+}
+
+.container{
+  margin: 10px auto;
+  width: 800px;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: 2fr 1.5fr 1.5fr;
+  grid-template-rows: 100px auto auto;
+  grid-template-areas: "header header header" 
+                        "formdiv showTable tampilTable" 
+                        "formdiv showTable tampilTable";
+}
+
+.header{
+  grid-area: header;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+
+.formdiv{
+  grid-area: formdiv;
+  padding: 0 20px;
+
+}
+
+.showTable{
+  grid-area: showTable;
+}
+
+.tampilTable{
+  grid-area: tampilTable;
+}
