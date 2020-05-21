@@ -76,23 +76,23 @@ $showDatabase = showdataBase('db_mahasiswa');
 
 <body>
 
-  <h1 id="header">SQL Syntax Using PHP</h1>
-
-  <div class="formdiv">
-    <button id="addNew">+</button>
-    <form action="" method="POST">
-      <div class="textcenterall">
-        <h3>Create new table</h3>
-        <input type="text" class="namaTable" id="namaTable">
-        <button id="create">Create</button>
-        <hr>
-      </div>
-      <ul></ul>
-    </form>
-  </div>
-
-
   <div class="container">
+
+    <h1 id="header">SQL Syntax Using PHP</h1>
+
+    <div class="formdiv">
+      <button id="addNew">+</button>
+      <form action="" method="POST">
+        <div class="textcenterall">
+          <h3>Create new table</h3>
+          <input type="text" class="namaTable" id="namaTable">
+          <button id="create">Create</button>
+          <hr>
+        </div>
+        <ul></ul>
+      </form>
+    </div>
+
     <div class="showTable">
       <h3>Show Database</h3>
       <hr>
@@ -103,8 +103,8 @@ $showDatabase = showdataBase('db_mahasiswa');
       </ul>
     </div>
     <div class="tampilTable"></div>
-  </div>
 
+  </div>
 
   <script src="js/script.js"></script>
 </body>
