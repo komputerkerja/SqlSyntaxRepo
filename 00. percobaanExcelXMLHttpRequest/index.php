@@ -1,65 +1,86 @@
 <?php
-    $dbh = new PDO('mysql:host=localhost;dbname=db_mahasiswa', 'root','');
-    $stmt = $dbh->prepare('SELECT * FROM mahasiswa');
-    $stmt->execute();
-    $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$query = 'CREATE DATABASE usermysqltest';
+//$query = 'create table user(id int(11) unsigned auto_increment primary key not null,username varchar(25) not null,email varchar(100) not null)';
+
+//$query = 'SELECT COUNT(id) FROM mahasiswa';
+//var_dump($row['COUNT(id)']);
+
+//$query = 'SELECT SUM(id) FROM mahasiswa';
+//var_dump($row['SUM(id)']);
+
+//$query = 'SELECT AVG(id) FROM mahasiswa';
+//var_dump($row['SVG(id)']);
+
+// MENAMPILKAN NAMA-NAMA KOLOM
+// $conn = mysqli_connect('localhost', 'root', '', 'db_mahasiswa');
+// $query = 'SHOW COLUMNS FROM mahasiswa FROM db_mahasiswa';
+// $result = mysqli_query($conn, $query);
+// $rows = [];
+// while ($row = mysqli_fetch_assoc($result)) {
+//   $rows[] = $row;
+// }
+// foreach ($rows as $row) {
+//   echo '' . $row['Field'] . '<br>';
+// }
+
+
+// MENAMBAH DATA BARU
+// $conn = mysqli_connect('localhost', 'root', '', 'db_mahasiswa');
+// $query = "INSERT INTO karyawan VALUES ('','Rahmat Xilva','komputerrumah100@gmail.com','2020-05-03')";
+// $result = mysqli_query($conn, $query);
+
+
+// SUMIFS MENGHASILKAN ARRAY
+// $conn = mysqli_connect('localhost', 'root', '', 'db_mahasiswa');
+// $query = "SELECT nama,tanggal,penjualan, IF(tanggal>='2020-01-01' AND tanggal<='2020-01-20' AND nama='ronal',penjualan,0) FROM penjualan";
+// $result = mysqli_query($conn, $query);
+// $rows = [];
+// while ($row = mysqli_fetch_assoc($result)) {
+//   $rows[] = $row;
+// }
+// $hasil = "IF(tanggal>='2020-01-01' AND tanggal<='2020-01-20' AND nama='ronal',penjualan,0)";
+// foreach ($rows as $row) {
+//   var_dump($row[$hasil]);
+// }
+
+
+$conn = mysqli_connect('localhost', 'root', '', 'db_mahasiswa');
+$query = "SELECT nama,tanggal,penjualan, IF(tanggal>='2020-01-01' AND tanggal<='2020-01-20' AND nama='ronal',penjualan,0) FROM penjualan";
+$result = mysqli_query($conn, $query);
+$rows = [];
+while ($row = mysqli_fetch_assoc($result)) {
+  $rows[] = $row;
+}
+
+var_dump(count($rows));
+
+if (mysqli_errno($conn) == 0) {
+  echo 'Sucses<br>';
+} else {
+  echo "Failed!<br>";
+}
+
+
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hello, world!</title>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <h1 id="header">SQL Syntax Using PHP</h1>
 
-    <h1 id="header">Database</h1>
 
-    <?php foreach($stmt as $row): ?>
 
-        <ul>
-            <li><?= $row['nama']; ?></li>
-            <li><?= $row['nrp']; ?></li>
-            <li><?= $row['email']; ?></li>
-        </ul>
-
-    <?php endforeach; ?>
-    
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
 </body>
+
 </html>
