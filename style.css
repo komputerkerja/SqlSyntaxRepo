@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: royalblue;
+    border-bottom: 2px tomato solid;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: wheat;
+}
+.kotak{
+    width: 200px;
+    height: 100px;
+    background-color: tomato;
+    border-radius: 20px;
+    top: 20px;
+    left: 10px;
+    box-shadow: 5px 5px 5px 5px;
+    animation: animasiku 5s alternate-reverse;
+    transition: 2s all ease;    
+}
+.container:hover .kotak{
+    transform: translateY(-190px) rotate(702deg);
+    margin-left: 250px;
+}
+
+
+@keyframes animasiku {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(500px);
+
+    }
+}
